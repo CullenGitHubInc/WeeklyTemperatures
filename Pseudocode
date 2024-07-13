@@ -12,39 +12,39 @@ BEGIN
 		
 		// Check if the user entered “week”
 		IF input EQUALS “week” THEN
-			BREAK
+		     BREAK
 
 		// Validate the day of the week
-IF input IS NOT one of [“Monday”, “Tuesday”, “Wednesday”, “Thursday”, “Friday”, “Saturday”, “Sunday”] THEN
-	PRINT “Invalid day of the week. Please try again.”
-	CONTINUE
+		IF input IS NOT one of [“Monday”, “Tuesday”, “Wednesday”, “Thursday”, “Friday”, “Saturday”, “Sunday”] THEN
+		     PRINT “Invalid day of the week. Please try again.”
+		     CONTINUE
 
-// Check if the day is already entered 
-IF days CONTAINS input THEN
-	PRINT “Day already entered. Please enter a different day.”
-	CONTINUE 
+		// Check if the day is already entered 
+		IF days CONTAINS input THEN
+		     PRINT “Day already entered. Please enter a different day.”
+		     CONTINUE 
 
-// Prompt for temperature 
-PRINT “Enter the average temperature for “ + input + “: “
-READ temperature
+		// Prompt for temperature 
+		PRINT “Enter the average temperature for “ + input + “: “
+		READ temperature
 
-// Add the day and temperature to the ArrayLists 
-Add input TO days
-Add temperature TO temperatures
-END WHILE
+		// Add the day and temperature to the ArrayLists 
+		ADD input TO days
+		ADD temperature TO temperatures
+	END WHILE
 
-// Display the days and temperatures 
-Print “\nDaily Average Temperatures:”
-DECLARE totalTempurature = 0
-FOR i FROM 0 TO days.SIZE – 1 DO
+	// Display the days and temperatures 
+	Print “\nDaily Average Temperatures:”
+	DECLARE totalTempurature = 0
+	FOR i FROM 0 TO days.SIZE – 1 DO
 		PRINT days[i] + “: “ + temperatures[i] + “˚C”
 		TotalTemperature = totalTemperature + temperatures[i]
-END FOR
+	END FOR
 
-// Calculate and display the weekly average temperature
-DECLARE weeklyAverage = totalTempurature / days.SIZE
-PRINT “\nWeekly Average Temperature: “ + weeklyAverage + “˚C”
+	// Calculate and display the weekly average temperature
+	DECLARE weeklyAverage = totalTempurature / days.SIZE
+	PRINT “\nWeekly Average Temperature: “ + weeklyAverage + “˚C”
 
-// Close the scanner
-CALL scanner.close()
+	// Close the scanner
+	CALL scanner.close()
 END
